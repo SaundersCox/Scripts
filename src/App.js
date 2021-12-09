@@ -56,7 +56,7 @@ Click Log In button`}
           />
           <Script
             script={Camelize}
-            scriptName="Convert a phrase into Camel Case"
+            scriptName="Convert a Phrase into Camel Case"
             initText="Hello! How are you?"
           />
         </div>

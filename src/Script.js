@@ -3,6 +3,7 @@ import camelize from "./camelize";
 
 export function Script(props) {
   const [input, setInput] = useState(props.initText);
+  const [output, setOutput] = useState(props.initText);
   const outputText = useRef(props.script(props.initText));
   const scriptID = camelize(props.scriptName);
   return (
@@ -25,11 +26,11 @@ export function Script(props) {
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
-            outputText.current = props.script(input);
+            outputText.current = props.script(e.target.value);
+            setOutput(props.script(e.target.value));
           }}
           rows={props.rows ? props.rows : 2}
           disabled={props.disabled}
-          // style={{ boxSizing: "border-box" }}
         ></textarea>
         <textarea
           id={scriptID + "-output"}
@@ -41,8 +42,9 @@ export function Script(props) {
         ></textarea>
       </span>
       <button
+        type="button"
         onClick={() => {
-          navigator.clipboard.writeText(outputText.current.value);
+          navigator.clipboard.writeText(output);
         }}
         style={{
           position: "relative",
