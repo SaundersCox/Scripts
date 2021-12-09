@@ -36,7 +36,7 @@ const App = () => {
         <div>
           <Script
             script={(str) => "Output"}
-            scriptName="Script Name"
+            scriptName="Sample Script Name"
             initText="Input"
             disabled
           ></Script>
@@ -44,12 +44,12 @@ const App = () => {
             script={FormatSteps}
             scriptName="Format Steps to Comments"
             initText={`1
-Open eDock Dockworker application
+Open application
 drag
 2
-Login with the Terminal Credentials
-- Enter Forklift ID - 893929
-- Enter Operator ID - 01007
+Login with Credentials
+- Enter ID - 555
+- Enter ID2 - 123
 drag
 3
 Click Log In button`}

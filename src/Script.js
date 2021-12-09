@@ -1,33 +1,59 @@
 import React, { useState, useRef } from "react";
+import camelize from "./camelize";
 
 export function Script(props) {
   const [input, setInput] = useState(props.initText);
   const outputText = useRef(props.script(props.initText));
+  const scriptID = camelize(props.scriptName);
   return (
     <form>
       <label>
-        <span style={{ display: "inline-block", width: "250px" }}>
+        <span
+          style={{
+            display: "inline-flex",
+            width: "250px",
+            height: "35px",
+          }}
+        >
           {props.scriptName}:
         </span>
+      </label>
+      <span style={{ position: "absolute" }}>
         <textarea
-          id={props.id + "-input"}
+          id={scriptID + "-input"}
           type="text"
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
-            outputText.current = props.script(e.target.value);
+            outputText.current = props.script(input);
           }}
-          rows={props.rows}
+          rows={props.rows ? props.rows : 2}
           disabled={props.disabled}
+          // style={{ boxSizing: "border-box" }}
         ></textarea>
         <textarea
-          id={props.id + "-output"}
+          id={scriptID + "-output"}
           type="text"
           value={outputText.current}
           ref={outputText}
           disabled={props.disabled}
+          rows={props.rows ? props.rows : 2}
         ></textarea>
-      </label>
+      </span>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(outputText.current.value);
+        }}
+        style={{
+          position: "relative",
+          height: "36px",
+          width: "46px",
+          left: "350px",
+        }}
+        disabled={props.disabled}
+      >
+        Copy
+      </button>
     </form>
   );
 }
