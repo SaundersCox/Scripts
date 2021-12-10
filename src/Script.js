@@ -31,6 +31,7 @@ export function Script(props) {
           }}
           rows={props.rows ? props.rows : 2}
           disabled={props.disabled}
+          style={{ resize: "none" }}
         ></textarea>
         <textarea
           id={scriptID + "-output"}
@@ -39,6 +40,7 @@ export function Script(props) {
           ref={outputText}
           disabled={props.disabled}
           rows={props.rows ? props.rows : 2}
+          style={{ resize: "none" }}
         ></textarea>
       </span>
       <button
