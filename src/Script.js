@@ -52,7 +52,7 @@ export function Script(props) {
           position: "relative",
           height: "36px",
           width: "46px",
-          left: "350px",
+          left: "375px",
         }}
         disabled={props.disabled}
       >

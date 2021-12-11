@@ -23,7 +23,7 @@ const App = () => {
           border: "2px solid #AAD",
           borderStyle: "groove",
           borderRadius: "25px",
-          padding: "40px",
+          padding: "50px",
         }}
       >
         <div>
@@ -64,7 +64,7 @@ Click Log In button`}
       <div
         style={{
           margin: "auto",
-          width: "50%",
+          width: "55%",
           minWidth: "650px",
           padding: "20px",
           textAlign: "center",
