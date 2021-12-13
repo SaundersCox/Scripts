@@ -7,7 +7,7 @@ const formatStepsToComments = (str) => {
     if (!isNaN(line)) {
       stepNum = line;
       recentNum = true;
-    } else if (line !== "drag" && line !== "") {
+    } else if (line !== "drag" && line !== "null" && line !== "") {
       if (recentNum) {
         result += "// " + stepNum + " " + line + "\n";
       } else {
