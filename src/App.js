@@ -2,6 +2,7 @@ import React from "react";
 import Script from "./Script";
 import FormatSteps from "./formatStepsToComments";
 import Camelize from "./camelize";
+import JsonToEnv from "./json-to-env";
 
 const App = () => {
   return (
@@ -58,6 +59,14 @@ Click Log In button`}
             script={Camelize}
             scriptName="Convert a Phrase into Camel Case"
             initText="Hello! How are you?"
+          />
+          <Script
+            script={JsonToEnv}
+            scriptName="Vault JSON to IDE Env Vars"
+            initText='{
+              "key1": "value1",
+              "key2": "value2"
+            }'
           />
         </div>
       </div>
